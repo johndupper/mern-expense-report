@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.post('/insert', (req, res) => {
   const expense = new Expense(parseExpense(req))
 
-  expense.save((error, expense) => {
+  expense.save((error) => {
     return error
       ? res.status(500).json({ error })
       // modal displays this message
@@ -73,7 +73,7 @@ router.put('/update', (req, res) => {
   const expense = parseExpense(req)
   const id = expense.id
 
-  Expense.updateOne({ id }, expense, (error, expense) => {
+  Expense.updateOne({ id }, expense, (error) => {
     return error
       ? res.status(500).json({ error })
       : res.status(201).send('Expense Updated')
@@ -84,10 +84,10 @@ router.put('/update', (req, res) => {
 router.delete('/delete/:id', (req, res) => {
   const id = req.params.id
 
-  Expense.findByIdAndDelete(id, (error, expense) => {
+  Expense.findByIdAndDelete(id, (error) => {
     return error
       ? res.status(500).json({ error })
-      : res.status(200).json({ expense })
+      : res.status(200).send('Expense Deleted')
   })
 })
 
