@@ -5,10 +5,9 @@ const Expense = require('../../models/Expense')
 const router = express.Router()
 
 const parseExpense = req => {
-  const { id, description, amount, month, year } = req.body
+  const { _id, description, amount, month, year } = req.body
   const expense = { description, amount, month, year }
-  if (id) expense.id = id
-
+  if (_id) expense._id = _id
   return expense
 }
 
@@ -49,14 +48,6 @@ router.get('/getAll', function (req, res) {
   }
 })
 
-// router.get('/getAll', (req, res) => {
-//   Expense.find({}, (error, expenses) => {
-//     return error
-//       ? res.status(500).json({ error })
-//       : res.status(200).json({ expenses })
-//   })
-// })
-
 // get by id
 router.get('/get/:id', (req, res) => {
   const id = req.params.id
@@ -71,9 +62,10 @@ router.get('/get/:id', (req, res) => {
 // update
 router.put('/update', (req, res) => {
   const expense = parseExpense(req)
-  const id = expense.id
+  const _id = expense._id
+  delete expense._id
 
-  Expense.updateOne({ id }, expense, (error) => {
+  Expense.updateOne({ _id }, expense, (error) => {
     return error
       ? res.status(500).json({ error })
       : res.status(201).send('Expense Updated')

@@ -21,7 +21,7 @@ export default class App extends Component {
     this.getData(this, '2018')
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps () {
     this.getData(this, '2018')
   }
 
@@ -63,7 +63,7 @@ export default class App extends Component {
                   <td className='button-col'>{exp.amount}</td>
                   <td className='button-col'>{exp.month}</td>
                   <td className='button-col'>{exp.year}</td>
-                  <td className='button-col'><Update expense={exp} /></td>
+                  <td className='button-col'><Update id={exp._id} expense={exp} /></td>
                   <td className='button-col'><Delete id={exp._id} expense={exp} /></td>
                 </tr>
               )

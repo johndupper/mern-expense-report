@@ -28,7 +28,7 @@ export default class Update extends Component {
 
   componentDidMount () {
     this.setState({
-      id: this.props.expense._id,
+      _id: this.props.expense._id,
       description: this.props.expense.description,
       amount: this.props.expense.amount,
       month: this.props.expense.month,
@@ -67,13 +67,13 @@ export default class Update extends Component {
     }
   }
 
-  onClick (e) {
+  onClick () {
     this.update(this)
   }
 
   update (e) {
     const expense = querystring.stringify({
-      _id: e.state.id,
+      _id: e.state._id,
       description: e.state.description,
       amount: e.state.amount,
       month: e.state.month,

@@ -43,7 +43,7 @@ export default class Add extends Component {
       description: '',
       amount: '',
       month: 'Jan',
-      year: 2016,
+      year: 2018,
       messageFromServer: ''
     })
   }
@@ -58,7 +58,7 @@ export default class Add extends Component {
     }
   }
 
-  onClick (e) {
+  onClick () {
     this.insertNewExpense(this)
   }
 
