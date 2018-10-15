@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
 
 module.exports = {
   entry: './client/index.js',
@@ -13,7 +12,7 @@ module.exports = {
         test: /.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-        query: { presets: ['@babel/preset-env','@babel/preset-react'] }
+        query: { presets: ['@babel/preset-env', '@babel/preset-react'] }
       },
       {
         test: /\.css$/,
