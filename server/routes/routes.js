@@ -73,10 +73,10 @@ router.put('/update', (req, res) => {
   const expense = parseExpense(req)
   const id = expense.id
 
-  Expense.update({ id }, expense, (error, expense) => {
+  Expense.updateOne({ id }, expense, (error, expense) => {
     return error
       ? res.status(500).json({ error })
-      : res.status(200).json({ expense })
+      : res.status(201).send('Expense Updated')
   })
 })
 

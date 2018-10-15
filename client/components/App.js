@@ -1,7 +1,8 @@
-import React, { Component }from 'react'
-import ReactDOM from 'react-dom'
+import React, { Component } from 'react'
 import axios from 'axios'
+
 import Add from './Add'
+import Update from './Update'
 
 export default class App extends Component {
   constructor () {
@@ -61,6 +62,7 @@ export default class App extends Component {
                   <td className='button-col'>{exp.amount}</td>
                   <td className='button-col'>{exp.month}</td>
                   <td className='button-col'>{exp.year}</td>
+                  <Update expense={exp} />
                 </tr>
               )
             })
